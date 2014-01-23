@@ -70,12 +70,12 @@ end
 
   # route: PATCH  /movies/:id(.:format)
   def update
-    # 'delete and insert'
+    # delete old entry
     @@movie_db.delete_if do |m|
       m["imdbID"] == params[:id]
     end
 
-    #create new movie
+    #create new entry
     movie = params.require(:movie).permit(:title, :year)
     movie['imdbID'] = params[:id]
 
@@ -83,7 +83,7 @@ end
     redirect_to action: :index
   end
 
-  # route: DELETE /movies/:id(.:format)
+  # destroy movie and redirect
   def destroy
     @@movie_db.delete_if do |m|
       m["imdbID"] == params[:id]
@@ -91,7 +91,8 @@ end
     redirect_to action: :index
   end
 
-private
+# Yeah...didn't get the below working...
+# private
 
 # def get_movie
 # 	the_movie = @@movie_db.find do |m|
