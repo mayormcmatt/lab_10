@@ -1,0 +1,51 @@
+h1 {
+	font-family: "Arvo";
+	font-size: 4em;
+	text-align: center;
+}
+
+.search_field {
+	margin: 20px;
+}
+
+.search_field form {
+	width: 300px;
+	margin: 0px auto;
+}
+
+.navbar {
+	width: 600px;
+	margin: 0px auto;
+}
+
+.navbar-nav {
+	width: 500px;
+	display: inline-block;
+	position: center;
+	text-align: center;
+}
+
+.navbar-nav a {
+	color: white;
+}
+
+.home {
+	background-color: #DD1E2F;
+	width: 33%;
+}
+
+.new {
+	background-color: #EBB035;
+	width: 33%;
+}
+
+.edit {
+	background-color: #06A2CB;
+	width: 33%;
+}
+
+.displayed_movs {
+	font-size: 1.5em;
+	display: inline-block;
+	margin: 10px;
+}

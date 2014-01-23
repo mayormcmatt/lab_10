@@ -1,0 +1,8 @@
+<ul>
+
+<% @parsed["Search"].map do |movie| %>
+<li class="movie-results"><%="#{movie["Title"]} (#{movie["Year"]})" %></li>
+
+<% end %>
+
+</ul>

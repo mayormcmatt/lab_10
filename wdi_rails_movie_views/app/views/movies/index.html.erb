@@ -1,0 +1,39 @@
+<body>
+	<div class="navbar">
+		<header>
+			<ul class="nav navbar-nav">
+				<li class="home"><a href="/movies/">Home</a></li>
+				<li class="new"><a href="/movies/new/">New Entry</a></li>
+				<li class="edit"><a href="/movies/edit/">Edit Entry</a></li>
+			</ul>
+		</header>
+	</div>
+
+	<h1>That's Moviewang! (v. 0.85)</h1>
+
+
+	<!-- <form accept-charset="UTF-8" action="/movies/results" method="POST">
+		<label for="movie">Search for:</label>
+		<input class="text-field" id="movie" name="movie" onFocus="this.value=''" type="text" value="Press 'Enter' to Search"/>
+		<input name="commit" type="submit" value="Search" style="position: absolute; left: -9999px"/>
+	</form> -->
+
+	<div class="search_field"><%= form_for :post, url: "/movies/results" do |f| %>
+		<%= label_tag(:title, "Title:") %> <%= f.text_field :title %>
+		<%= f.submit "Create" %>
+	<% end %>
+	</div>
+
+	<% @movies.each do |movie| %>
+
+	  <!-- <a href="/movies/<%#= movie['imdbID'] %>"><%#= movie["Title"] %></a> - <%#= movie["Year"] %></br> -->
+
+	  <div class="displayed_movs"><%= link_to movie["title"], movie_path(movie['imdbID']) %> - <%= movie["year"] %></br>
+
+	  <%= button_to "delete", {controller: :movies, action: :destroy, id: movie["imdbID"] }, :method => :delete %>
+	  <%= button_to "edit", {controller: :movies, action: :edit, id: movie["imdbID"] }, :method => :get %>
+	  </div>
+
+	<% end %>
+	<!-- <%= link_to 'Add Movie to DB', new_movie_path %> -->
+</body>
